@@ -17,7 +17,20 @@
 
     if(firstValue.trim() == '' || secondValue.trim() == ''){
         alert('input a valid credentials')
+    } 
+    else{
+
+        const userObj = {firstNameValue, lastNameValue, emailValue, passwordValue}
+            let found = allUsers.find(user=>user.emailValue === userObj.emailValue)
+            // console.log(found);
+            if (found) {
+                alert('user already exists')
+            } else {
+                localStorage.setItem('users', JSON.stringify(allUsers))
+                btnText.innerText = '...loading'
+            }
+        }
     }
-    }
+
 </script>
 </html>
