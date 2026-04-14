@@ -8,10 +8,11 @@
 <body>
     <input type="text" placeholder="email" id="email">
     <input type="password" placeholder="password" id="password">
-    <button onclick="submit()">signin</button>
+    <button onclick="submit()" id="btnText">signin</button>
 </body>
 <script>
-    let allUsers = JSON.parse(localStorage.getItem('users')) || []
+    let allUsers = JSON.parse(localStorage.getItem('users'))
+
     const submit = () => {
     firstValue = document.getElementById('email').value
     passwordValue = document.getElementById('password').value
@@ -25,10 +26,11 @@
             let found = allUsers.find(user=>user.emailValue === userObj.emailValue)
             // console.log(found);
             if (found) {
-                alert('user already exists')
+                // alert('user already exists')
+                Window.location.href = dashboard
             } else {
-                allUsers.push(userObj)
-                localStorage.getItem('users', JSON.stringify(allUsers))
+                allUsers.push(localStorage.setItem('users', JSON.stringify(allUsers))) 
+                JSON.parse(localStorage.getItem('users'))
                 btnText.innerText = '...loading'
 
                 setTimeout(()=>{
