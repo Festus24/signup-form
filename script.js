@@ -22,7 +22,7 @@ const submitDetails = () => {
         const userObj = {firstNameValue, lastNameValue, emailValue, passwordValue}
         // console.log(userObj);
         // let found = allUsers.find((user)=>{return user.emailValue === userObj.emailValue})
-        let found = allUsers.find(user=>user.emailValue === userObj.emailValue)
+        let found = allUsers.find(users=>users.emailValue === userObj.emailValue)
         // console.log(found);
         if (found) {
             alert('user already exists')

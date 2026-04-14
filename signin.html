@@ -17,27 +17,41 @@
     firstValue = document.getElementById('email').value
     passwordValue = document.getElementById('password').value
 
-    if(firstValue.trim() == '' || passwordValue.trim() == ''){
-        alert('input a valid credentials')
-    } 
-    else{
+    const userObj = {firstValue, passwordValue}
+    let found = allUsers.find(users=>users.emailValue === userObj.emailValue)
+    if (found) {
+        allUsers.push(localStorage.setItem('users', JSON.stringify(allUsers))) 
+        // JSON.parse(localStorage.getItem('users'))
+        setTimeout(()=>{
+        window.location.href = 'dashboard.html'
+        }, 1500)
+        // btnText.innerText = '...loading'
 
-        const userObj = {firstValue, passwordValue}
-            let found = allUsers.find(user=>user.emailValue === userObj.emailValue)
-            // console.log(found);
-            if (found) {
-                // alert('user already exists')
-                Window.location.href = dashboard
             } else {
-                allUsers.push(localStorage.setItem('users', JSON.stringify(allUsers))) 
-                JSON.parse(localStorage.getItem('users'))
-                btnText.innerText = '...loading'
-
-                setTimeout(()=>{
-                window.location.href = 'dashboard.html'
-                }, 1500)
+                window.location.href = 'index.html'
             }
-        }
+
+
+    // if(firstValue.trim() == '' || passwordValue.trim() == ''){
+    //     alert('input a valid credentials')
+    // } 
+    // else{
+
+    //     const userObj = {firstValue, passwordValue}
+    //         let found = allUsers.find(users=>users.emailValue === userObj.emailValue)
+    //         // console.log(found);
+    //         if (found) {
+    //             allUsers.push(localStorage.setItem('users', JSON.stringify(allUsers))) 
+    //             // JSON.parse(localStorage.getItem('users'))
+    //             setTimeout(()=>{
+    //             window.location.href = 'dashboard.html'
+    //             }, 1500)
+    //             // btnText.innerText = '...loading'
+
+    //         } else {
+    //             // window.location.href = 'index.html'
+    //         }
+    //     }
     }
 
 </script>
