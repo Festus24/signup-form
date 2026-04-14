@@ -11,23 +11,29 @@
     <button onclick="submit()">signin</button>
 </body>
 <script>
+    let allUsers = JSON.parse(localStorage.getItem('users')) || []
     const submit = () => {
     firstValue = document.getElementById('email').value
-    secondValue = document.getElementById('password').value
+    passwordValue = document.getElementById('password').value
 
-    if(firstValue.trim() == '' || secondValue.trim() == ''){
+    if(firstValue.trim() == '' || passwordValue.trim() == ''){
         alert('input a valid credentials')
     } 
     else{
 
-        const userObj = {firstNameValue, lastNameValue, emailValue, passwordValue}
+        const userObj = {firstValue, passwordValue}
             let found = allUsers.find(user=>user.emailValue === userObj.emailValue)
             // console.log(found);
             if (found) {
                 alert('user already exists')
             } else {
-                localStorage.setItem('users', JSON.stringify(allUsers))
+                allUsers.push(userObj)
+                localStorage.getItem('users', JSON.stringify(allUsers))
                 btnText.innerText = '...loading'
+
+                setTimeout(()=>{
+                window.location.href = 'dashboard.html'
+                }, 1500)
             }
         }
     }
