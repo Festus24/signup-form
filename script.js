@@ -44,22 +44,3 @@ const submitDetails = () => {
     }
     
 }
-
-// let named = "Seye"
-// let age = 45
-// let student = {
-//     name: named,
-//     age
-// }
-
-// // console.log(student['age']);
-
-// localStorage.setItem('food', JSON.stringify(student))
-
-// function checkSum(a,b) {
-//     let sum = a+b
-//     return sum
-// }
-
-// console.log(checkSum(4,2));
-// console.log(window);
